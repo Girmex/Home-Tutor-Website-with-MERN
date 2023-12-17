@@ -3,8 +3,10 @@ import dotenv from "dotenv";
 import cors from 'cors'
 import connectDB from "./config/db.js";
 import path from "path";
-import noteRoutes from "./routes/noteRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import noteRoutes from "./routes/noteRoutes.js";
+import jobRoutes from "./routes/jobRoutes.js";
+
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
@@ -18,7 +20,7 @@ app.use(express.json());
 // to accept json data
 app.use("/api/notes", noteRoutes);
 app.use("/api/users", userRoutes);
-
+app.use("/api/jobs", jobRoutes);
 // --------------------------deployment------------------------------
 const __dirname = path.resolve();
 

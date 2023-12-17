@@ -21,7 +21,6 @@ const authUser = asyncHandler(async (req, res) => {
     throw new Error("Invalid Email or Password");
   }
 });
-
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, pic } = req.body;
   console.log(req.body);
@@ -55,9 +54,6 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    GET user profile
-// @route   GET /api/users/profile
-// @access  Private
 const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
   console.log("welcome")
